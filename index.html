@@ -4,20 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Working with Vue</title>
+    <link rel="stylesheet" href="css/master.css">
 <!--view library linked in-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
+    <!--id has to match the one in main.js-->
     <main id="app">
         <h1 @click="clickHeader">{{ message }}</h1>
         <p>{{anotherMessage}}</p>
-
+        <span></span>
         <!-- show the prof data in profs array -->
         <ul>
             <li v-for="prof in profs">
-                <p v-on:click="logClicked">Prof Name: {{ prof.name }}, Role: {{ prof.role }}</p>
+                <p>Prof Name: {{ prof.name }}, Role: {{ prof.role }}</p>
+                <a href="" class="remove-prof" @click.prevent="removeProf(prof)" :class="{'prof-button-modifier': removeAformat}">Remove {{prof. name}}</a> 
             </li>
         </ul>
+
+        <section class="bioData" :class="{'showBio' : showBioData}">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id deserunt perspiciatis consequuntur voluptatem mollitia illum molestias laboriosam, voluptatibus maiores, eveniet quia officiis esse, inventore ipsum dolorum vel asperiores qui.
+            </p>
+        </section>
     </main>
 </body>
 <script src="js/main.js" type="module"></script>
